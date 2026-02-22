@@ -11,7 +11,7 @@
         /* Page Specific Overrides */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0, 33, 71, 0.4), rgba(0, 33, 71, 0.6)), url('modern_golf_longstay_hero_1771757573172.png');
+            background: linear-gradient(rgba(0, 33, 71, 0.4), rgba(0, 33, 71, 0.2)), url('premium_golf_hero_1771201546281.png');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -26,124 +26,78 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 150px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            height: 250px;
+            background: linear-gradient(to top, rgba(0, 33, 71, 0.9), transparent);
         }
 
         .hero-content {
             position: relative;
             z-index: 10;
-            max-width: 900px;
+            max-width: 1000px;
             padding: 0 5%;
         }
 
         .hero-badge {
             display: inline-block;
-            padding: 8px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 25px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
+            backdrop-filter: blur(15px);
+            border-radius: 100px;
             font-size: 14px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin-bottom: 24px;
-            color: var(--accent);
+            color: var(--white);
             text-transform: uppercase;
+            font-weight: 600;
         }
 
         .hero h1 {
-            font-size: clamp(40px, 5vw, 72px);
-            line-height: 1.2;
-            margin-bottom: 24px;
-            font-weight: 700;
+            font-size: clamp(45px, 6vw, 84px);
+            line-height: 1.1;
+            margin-bottom: 30px;
+            font-weight: 800;
+            letter-spacing: -2px;
         }
 
         .hero h1 span {
             color: var(--accent);
             font-family: 'Noto Serif KR', serif;
             font-style: italic;
+            background: linear-gradient(to right, #D4AF37, #F1E5AC);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: clamp(16px, 2vw, 20px);
-            opacity: 0.9;
+            font-size: clamp(18px, 2.5vw, 22px);
+            opacity: 0.95;
             margin-bottom: 50px;
-            max-width: 600px;
-            font-weight: 300;
+            max-width: 650px;
+            font-weight: 400;
+            line-height: 1.6;
         }
 
-        .tour-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .tour-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-img {
-            height: 380px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .card-img::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.7));
-        }
-
-        .card-overlay {
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            color: white;
-            z-index: 2;
-        }
-
-        .card-overlay h3 {
-            font-size: 28px;
-            margin-bottom: 8px;
-            color: white;
-        }
-
-        .card-overlay p {
-            font-size: 15px;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        .badge-top {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: white;
-            color: var(--primary);
-            padding: 6px 16px;
+        .trust-card {
+            padding: 60px 40px;
+            background: #fff;
             border-radius: 30px;
-            font-size: 12px;
-            font-weight: 700;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-premium);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.03);
         }
 
-        .price-chip {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: 600;
-            margin-top: 15px;
+        .trust-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .trust-icon {
+            font-size: 40px;
+            margin-bottom: 25px;
+            display: block;
         }
     </style>
 </head>
@@ -156,7 +110,7 @@
                 <a href="#hero">홈</a>
                 <a href="#tours">컬렉션</a>
                 <a href="#trust">프라이빗 서비스</a>
-                <a href="detail.html" style="color: var(--accent); font-weight: 700;">예약하기</a>
+                <a href="detail.html" class="btn-premium" style="padding: 12px 25px; font-size: 14px;">PDF 실시간 견적서</a>
             </nav>
         </div>
     </header>
@@ -165,32 +119,41 @@
         <!-- Hero Section -->
         <section id="hero" class="hero">
             <div class="hero-content fade-in-up">
-                <span class="hero-badge" style="background: var(--accent); color: white;">PREMIUM LONG-STAY GOLF</span>
-                <h1>당신의 두 번째 라이프스타일,<br><span>안정적인 해외 골프 장박.</span></h1>
-                <p>단순한 라운딩을 넘어선 '체류와 휴식'.<br>생활의 질을 높이는 고품질 식사와 운영의 안정성을 경험하세요.</p>
+                <span class="hero-badge">Luxury Long-stay Golf</span>
+                <h1>장박 골프, <br>단순한 관광을 넘어 <br><span>당신의 인생</span>이 됩니다.</h1>
+                <p>프리미엄 롱스테이 컨설팅 전문 '골프 인사이트'가<br>당신의 품격 있는 두 번째 청춘을 설계합니다.</p>
                 <div style="display: flex; gap: 20px;">
-                    <a href="detail.html" class="btn-premium">장박 컬렉션 보기</a>
-                    <a href="#tours" class="btn-outline">전략 기획서 확인</a>
+                    <a href="#tours" class="btn-premium">프리미엄 투어 보기</a>
+                    <a href="detail.html" class="btn-outline">장박 무료 상담</a>
                 </div>
             </div>
         </section>
 
         <!-- Target Audience Section -->
-        <section style="padding: 100px 0; background: var(--bg-alt);">
-            <div class="container text-center">
-                <h2 style="margin-bottom: 50px;">누구를 위한 투어인가요?</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-                    <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: var(--shadow);">
-                        <h4 style="color: var(--primary); margin-bottom: 15px;">4050 안식월 그룹</h4>
-                        <p style="font-size: 15px; color: #666;">전문직 및 자영업자를 위한 프라이빗한 휴식과 고품질 식사 제공</p>
+        <section id="trust" style="padding: 140px 0; background: var(--bg-alt);">
+            <div class="container">
+                <div class="section-title text-center mb-80">
+                    <h2>왜 골프 인사이트인가?</h2>
+                    <p>우리는 단순한 여행사가 아닙니다. 당신의 안정적인 해외 체류를 위한 비즈니스 파트너입니다.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
+                    <div class="trust-card">
+                        <span class="trust-icon">💎</span>
+                        <h4 style="font-size: 22px; margin-bottom: 20px; color: var(--primary);">운영의 확실성</h4>
+                        <p style="color: #64748b; font-size: 16px;">현지 직영 시스템으로 운영되어 예약 실수가 없으며, 사고 시 24시간 한국인 대응팀이
+                            상주합니다.</p>
                     </div>
-                    <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: var(--shadow);">
-                        <h4 style="color: var(--primary); margin-bottom: 15px;">액티브 시니어</h4>
-                        <p style="font-size: 15px; color: #666;">건강 관리와 장기 체류 가성비, 한국인 상주 서비스로 안심 체류</p>
+                    <div class="trust-card">
+                        <span class="trust-icon">⚖️</span>
+                        <h4 style="font-size: 22px; margin-bottom: 20px; color: var(--primary);">정직한 가격 구조</h4>
+                        <p style="color: #64748b; font-size: 16px;">중간 수수료를 뺀 직계약 요금을 공개하며, 7박 이상의 장박 고객에게는 최고의 단가를
+                            제공합니다.</p>
                     </div>
-                    <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: var(--shadow);">
-                        <h4 style="color: var(--primary); margin-bottom: 15px;">골프 매니아</h4>
-                        <p style="font-size: 15px; color: #666;">무제한 라운딩과 숏게임 연습장, 철저한 코스 관리 상태 보장</p>
+                    <div class="trust-card">
+                        <span class="trust-icon">🍷</span>
+                        <h4 style="font-size: 22px; margin-bottom: 20px; color: var(--primary);">생활의 품격(QoL)</h4>
+                        <p style="color: #64748b; font-size: 16px;">삼시세끼 '한식 명인'의 식단이 포함되며, 단순한 숙박이 아닌 프리미엄 리조트 서비스를
+                            제공합니다.</p>
                     </div>
                 </div>
             </div>
