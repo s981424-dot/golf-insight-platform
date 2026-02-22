@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>골프인사이트 어드민 | 상품 관리 시스템</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --admin-bg: #f4f7fa;
+            --sidebar-width: 260px;
+        }
+
+        body {
+            background-color: var(--admin-bg);
+            display: flex;
+            min-height: 100vh;
+            font-family: 'Pretendard', sans-serif;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--primary);
+            color: white;
+            padding: 30px 20px;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+        }
+
+        .sidebar .logo {
+            color: white;
+            margin-bottom: 50px;
+            font-size: 22px;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-item {
+            padding: 12px 20px;
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-item.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .nav-item:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 40px;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title h1 {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 28px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Admin Card */
+        .admin-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .btn-save {
+            background: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-save:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Table Style */
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .product-table th {
+            text-align: left;
+            padding: 15px;
+            background: #f8f9fa;
+            font-size: 13px;
+            color: #888;
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product-table td {
+            padding: 20px 15px;
+            border-bottom: 1px solid #f9f9f9;
+            font-size: 15px;
+        }
+
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background: #e8f5e9;
+            color: #2D5A27;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-icon {
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">GOLF<span>INSIGHT</span> ADMIN</div>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item active">📦 상품 관리</a>
+            <a href="#" class="nav-item">📈 예약 현황</a>
+            <a href="#" class="nav-item">👥 고객 관리</a>
+            <a href="#" class="nav-item">⚙️ 시스템 설정</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="page-header">
+            <div class="page-title">
+                <h1>새로운 장박 상품 등록</h1>
+            </div>
+            <div class="user-info" style="font-size: 14px; color: #666;">
+                경수 대표님 (관리자)
+            </div>
+        </div>
+
+        <section class="admin-card">
+            <form id="product-form">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="form-group">
+                        <label class="form-label">국가 (Country)</label>
+                        <select class="form-control" id="country">
+                            <option value="Thailand">THAILAND (태국)</option>
+                            <option value="Vietnam">VIETNAM (베트남)</option>
+                            <option value="Japan">JAPAN (일본)</option>
+                            <option value="Philippines">PHILIPPINES (필리핀)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">도시 (City)</label>
+                        <input type="text" class="form-control" id="city" placeholder="예: 치앙마이, 다낭">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">상품명 (Product Title)</label>
+                        <input type="text" class="form-control" id="title" placeholder="상품의 핵심 타이틀">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">1박 기준 가격 (Daily Rate)</label>
+                        <input type="number" class="form-control" id="price" placeholder="₩ 000,000">
+                    </div>
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label class="form-label">핵식 포인트 (Highlights)</label>
+                        <input type="text" class="form-control" id="highlights" placeholder="예: 숙박+36홀+삼시세끼 포함">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">배지 (Badge)</label>
+                        <select class="form-control" id="badge">
+                            <option value="">없음</option>
+                            <option value="BEST SELLER">BEST SELLER</option>
+                            <option value="NEW">NEW</option>
+                            <option value="HOT">HOT</option>
+                            <option value="PRIVATE">PRIVATE</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">대표 이미지 (Main Image URL)</label>
+                        <input type="text" class="form-control" id="image" placeholder="thailand.png, vietnam.png 등">
+                    </div>
+                </div>
+                <div style="margin-top: 30px; text-align: right;">
+                    <button type="submit" class="btn-save">상품 등록하기</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="admin-card">
+            <h2 style="font-size: 20px; margin-bottom: 25px;">현재 등록된 상품 목록</h2>
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>도시/국가</th>
+                        <th>상품명</th>
+                        <th>1박 단가</th>
+                        <th>상태</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list">
+                    <!-- 기본 데이터 예시 -->
+                    <tr>
+                        <td><strong>치앙마이</strong> / THAILAND</td>
+                        <td>치앙마이 힐링 장박</td>
+                        <td>₩145,000</td>
+                        <td><span class="status-badge status-active">노출중</span></td>
+                        <td class="action-btns">
+                            <button class="btn-icon">✏️</button>
+                            <button class="btn-icon">🗑️</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyA3M8WPLdWnYi1vvXI-gmeQmXx7R2zmkgg",
+            authDomain: "golf-insight-ed4f1.firebaseapp.com",
+            projectId: "golf-insight-ed4f1",
+            storageBucket: "golf-insight-ed4f1.firebasestorage.app",
+            messagingSenderId: "689916258177",
+            appId: "1:689916258177:web:8e5b8be5b0b6a585082a80",
+            measurementId: "G-FMX5NKG9VJ"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const productsCol = collection(db, "products");
+
+        async function renderList() {
+            const list = document.getElementById('product-list');
+            list.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:20px;">불러오는 중...</td></tr>';
+
+            try {
+                const q = query(productsCol, orderBy("createdAt", "desc"));
+                const querySnapshot = await getDocs(q);
+                list.innerHTML = '';
+
+                if (querySnapshot.empty) {
+                    list.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#999; padding:40px;">등록된 상품이 없습니다.</td></tr>`;
+                    return;
+                }
+
+                querySnapshot.forEach((docSnap) => {
+                    const product = docSnap.data();
+                    const id = docSnap.id;
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><strong>${product.city}</strong> / ${product.country.toUpperCase()}</td>
+                        <td>${product.title}</td>
+                        <td>₩${Number(product.price).toLocaleString()}</td>
+                        <td><span class="status-badge status-active">노출중</span></td>
+                        <td class="action-btns">
+                            <button class="btn-icon delete-btn" data-id="${id}">🗑️</button>
+                        </td>
+                    `;
+                    list.appendChild(row);
+                });
+
+                // Attach event listeners to delete buttons
+                document.querySelectorAll('.delete-btn').forEach(btn => {
+                    btn.onclick = async (e) => {
+                        const id = e.target.getAttribute('data-id');
+                        if (confirm('정말 삭제하시겠습니까?')) {
+                            await deleteDoc(doc(db, "products", id));
+                            renderList();
+                        }
+                    };
+                });
+
+            } catch (error) {
+                console.error("Error fetching products:", error);
+                list.innerHTML = `<tr><td colspan="5" style="text-align:center; color:red; padding:20px;">데이터를 불러오는 중 오류가 발생했습니다.</td></tr>`;
+            }
+        }
+
+        document.getElementById('product-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const product = {
+                country: document.getElementById('country').value,
+                city: document.getElementById('city').value,
+                title: document.getElementById('title').value,
+                price: document.getElementById('price').value,
+                highlights: document.getElementById('highlights').value,
+                badge: document.getElementById('badge').value,
+                image: document.getElementById('image').value || 'thailand.png',
+                createdAt: new Date()
+            };
+
+            try {
+                await addDoc(productsCol, product);
+                alert('상품이 성공적으로 클라우드에 등록되었습니다!');
+                this.reset();
+                renderList();
+            } catch (error) {
+                console.error("Error adding product:", error);
+                alert('등록 중 오류가 발생했습니다.');
+            }
+        });
+
+        // Initial render
+        renderList();
+    </script>
+</body>
+
+</html>

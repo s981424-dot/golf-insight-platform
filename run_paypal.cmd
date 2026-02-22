@@ -1,0 +1,2 @@
+@echo off
+npx -y @paypal/mcp --tools=invoices.create --access-token=A21AAKp6vvwhItNYd59fVzeBEaeEVsstu1zj58DWosNEKqTY_5UQ-4GkUj1pxHCNaFO69HVvcGfH-0t261_oO6Xaxvuf0yjJQ --paypal-environment=sandbox

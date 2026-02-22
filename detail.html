@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>치앙마이 힐링 골프 14박 15일 | 골프인사이트</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero {
+            height: 80vh;
+            /* Slightly shorter for detail page */
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url('thailand.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-title {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-title h1 {
+            font-size: 56px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero-title p {
+            font-size: 20px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .quick-stats {
+            background: white;
+            padding: 40px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 80px;
+            /* Below header */
+            z-index: 900;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item span {
+            display: block;
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-item strong {
+            font-size: 22px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            margin-top: 80px;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            color: var(--primary);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card img {
+            border-radius: 20px;
+            margin-bottom: 20px;
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .itinerary-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            border: 1px solid #f9f9f9;
+        }
+
+        .day-badge {
+            min-width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: white;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .day-badge span {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .day-badge strong {
+            font-size: 24px;
+        }
+
+        .booking-card {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 180px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .price-display {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .price-original {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 16px;
+        }
+
+        .price-final {
+            font-size: 36px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .check-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .check-list li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .btn-paypal {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: #003087;
+            /* PayPal Blue */
+            color: white;
+            text-align: center;
+            border-radius: 12px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        .btn-paypal:hover {
+            background: #00256b;
+            box-shadow: 0 10px 20px rgba(0, 48, 135, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container nav">
+            <div class="logo">GOLF<span>INSIGHT</span></div>
+            <nav class="nav-links">
+                <a href="index.html">홈으로 돌아가기</a>
+                <a href="#overview">상품개요</a>
+                <a href="#itinerary">상세일정</a>
+                <a href="#booking" style="color: var(--accent);">예약하기</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero" style="display: flex; align-items: center; justify-content: center;">
+            <div class="hero-title fade-in-up">
+                <span
+                    style="color: var(--accent); letter-spacing: 3px; font-size: 14px; text-transform: uppercase; display: block; margin-bottom: 20px;">Premium
+                    Longstay Collection</span>
+                <h1>치앙마이 힐링 골프 15일</h1>
+                <p>가산 쿤탄 & 레거시 무제한 라운딩, 그리고 완벽한 휴식</p>
+            </div>
+        </section>
+
+        <!-- Quick Info Bar -->
+        <div class="quick-stats">
+            <div class="container"
+                style="display: grid; grid-template-columns: 2fr 1.5fr; gap: 40px; align-items: center;">
+                <div class="stat-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="stat-item">
+                        <span>최소 체류</span>
+                        <strong>7박 이상</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>라운딩</span>
+                        <strong>1일 36홀 무제한</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>식사</span>
+                        <strong>특급 호텔 한식 뷔페</strong>
+                    </div>
+                </div>
+                <!-- Weather & Distance Card -->
+                <div style="display: flex; gap: 20px;">
+                    <div
+                        style="background: #f0f7ff; padding: 15px 20px; border-radius: 12px; flex: 1; border-left: 4px solid var(--primary);">
+                        <span style="font-size: 12px; color: var(--primary); font-weight: 700;">현지 기온 (시즌 평균)</span>
+                        <div style="font-size: 18px; font-weight: 600; margin-top: 5px;">☀️ 22°C / 💧 65%</div>
+                    </div>
+                    <div
+                        style="background: #f0fdf4; padding: 15px 20px; border-radius: 12px; flex: 1; border-left: 4px solid var(--accent);">
+                        <span style="font-size: 12px; color: var(--accent); font-weight: 700;">공항-리조트 거리</span>
+                        <div style="font-size: 18px; font-weight: 600; margin-top: 5px;">🚗 45분 (VIP 픽업)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container content-wrapper">
+            <!-- Main Content -->
+            <div class="details">
+                <section id="overview">
+                    <div class="section-header">
+                        <h2>상품 핵심 포인트</h2>
+                    </div>
+                    <p style="font-size: 18px; line-height: 1.8; color: #444; margin-bottom: 40px;">
+                        단순히 공을 치는 것이 아닙니다. 청정 자연 속에서 몸과 마음을 치유하는 시간입니다.<br>
+                        해발 500m 고지의 시원한 바람, 한국인 입맛에 맞춘 프리미엄 뷔페,<br>
+                        그리고 하루 종일 이어지는 무제한 라운딩의 자유를 만끽하세요.
+                    </p>
+
+                    <div class="feature-grid">
+                        <div style="background: var(--bg-alt); padding: 40px; border-radius: 20px;">
+                            <h3 style="font-size: 20px; margin-bottom: 25px; color: var(--primary);">✅ 포함 사항 (Included)
+                            </h3>
+                            <ul class="check-list">
+                                <li>전 일정 숙박 (골프텔 2인 1실)</li>
+                                <li>전 일정 식사 (조/중/석식 - 한식 중심)</li>
+                                <li>그린피 (1일 36홀 무제한)</li>
+                                <li>현지 공항 미팅/샌딩 서비스 (VIP 의전)</li>
+                                <li>현지 한국인 매니저 상주 서비스</li>
+                            </ul>
+                        </div>
+                        <div style="background: #fff; border: 1px solid #eee; padding: 40px; border-radius: 20px;">
+                            <h3 style="font-size: 20px; margin-bottom: 25px; color: #888;">❌ 불포함 사항 (Excluded)</h3>
+                            <ul class="check-list" style="opacity: 0.8;">
+                                <li style="color: #999;">왕복 항공료 (개별 발권 또는 대행)</li>
+                                <li style="color: #999;">카트비 및 캐디피 (현지 지불)</li>
+                                <li style="color: #999;">캐디 팁 (일일 권장 금액 명시)</li>
+                                <li style="color: #999;">개인 매너 팁 및 기타 관광 비용</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="itinerary" style="margin-top: 80px;">
+                    <div class="section-header">
+                        <h2>상세 일정표</h2>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <div class="day-badge">
+                            <span>DAY</span>
+                            <strong>01</strong>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 22px; margin-bottom: 15px;">치앙마이 도착 및 VIP 의전</h4>
+                            <p style="color: #666; font-size: 16px; line-height: 1.6;">
+                                치앙마이 국제공항 도착 후 전용 리무진으로 리조트 이동.<br>
+                                웰컴 드링크 및 체크인, 내일의 라운딩을 위한 편안한 휴식.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <div class="day-badge">
+                            <span>DAY</span>
+                            <strong>2-14</strong>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 22px; margin-bottom: 15px;">무제한 라운딩 & 힐링 자유시간</h4>
+                            <p style="color: #666; font-size: 16px; line-height: 1.6;">
+                                <strong>오전:</strong> 가산 쿤탄 C.C. 18홀 라운딩 (원하는 경우 36홀 가능)<br>
+                                <strong>오후:</strong> 리조트 내 수영장, 스파 이용 또는 치앙마이 시내 관광 (선택사항)<br>
+                                <strong>저녁:</strong> 호텔 뷔페 또는 특별석식 제공
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-item">
+                        <div class="day-badge">
+                            <span>DAY</span>
+                            <strong>15</strong>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 22px; margin-bottom: 15px;">체크아웃 및 귀국</h4>
+                            <p style="color: #666; font-size: 16px; line-height: 1.6;">
+                                오전 라운딩 후 체크아웃. 공항으로 이동.<br>
+                                인천 도착 후 해산. 안녕히 가십시오.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Booking Sidebar -->
+            <aside>
+                <div id="booking" class="booking-card"
+                    style="border: 1px solid #eee; background: white; padding: 30px; border-radius: 20px;">
+                    <span
+                        style="display: block; text-align: center; color: var(--accent); font-weight: 700; margin-bottom: 15px; font-size: 14px;">PREMIUM
+                        LONG-STAY ESTIMATOR</span>
+                    <h3 style="text-align: center; font-size: 24px; color: var(--primary); margin-bottom: 25px;">치앙마이
+                        실시간 견적</h3>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-size: 13px; color: #666; display: block; margin-bottom: 10px;">체류 박수 선택 (7박
+                            이상)</label>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <input type="number" id="stay-nights" value="14" min="1"
+                                style="width: 80px; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 18px; font-weight: 700; text-align: center;">
+                            <span style="font-size: 16px; font-weight: 600;">박</span>
+                        </div>
+                        <p id="stay-warning"
+                            style="font-size: 11px; color: #e53e3e; margin-top: 10px; font-weight: 600;"></p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+                        <div
+                            style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 13px; color: #888;">
+                            <span>1박 평균 단가</span>
+                            <span id="daily-price-display">₩145,000</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <span style="font-size: 14px; color: var(--primary); font-weight: 700;">총 예상 견적</span>
+                            <span id="total-price-display"
+                                style="font-size: 28px; font-weight: 700; color: var(--accent);">₩2,030,000</span>
+                        </div>
+
+                        <div id="benefit-pills" style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span
+                                style="background: var(--accent); color: white; padding: 4px 10px; border-radius: 5px; font-size: 11px; font-weight: 700;">공항
+                                픽업 무료</span>
+                            <span id="tier-benefit"
+                                style="background: #002147; color: white; padding: 4px 10px; border-radius: 5px; font-size: 11px; font-weight: 700;">마사지
+                                3회권 증정</span>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn-paypal"
+                        style="background: var(--primary); color: white; display: block; text-align: center; padding: 15px; border-radius: 10px; font-weight: 700; text-decoration: none;">
+                        견적 확정 및 예약하기
+                    </a>
+
+                    <p style="font-size: 11px; color: #999; text-align: center; margin-top: 15px; line-height: 1.4;">
+                        * 15박 이상 시 장박 추가 할인이 자동 적용됩니다.<br>
+                        * 항공료 제외, 현지 지상비 확정가 기준입니다.
+                    </p>
+                </div>
+
+                <div
+                    style="margin-top: 30px; text-align: center; padding: 30px; background: #fff; border-radius: 20px; border: 1px solid #f0f0f0;">
+                    <h4 style="margin-bottom: 10px;">전화 문의</h4>
+                    <p style="font-size: 24px; color: var(--primary); font-weight: 700;">1588-0000</p>
+                    <p style="color: #888; font-size: 14px;">평일 09:00 - 18:00</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer style="background: #1a1a1a; color: #888; padding: 60px 0; margin-top: 100px;">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 GOLF INSIGHT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
